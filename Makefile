@@ -1,8 +1,9 @@
 PREFIX ?= /usr/local
 SHARE_PREFIX ?= $(PREFIX)/share
 MAN_PREFIX ?= $(SHARE_PREFIX)/man
+ELIXIRC_OPTIONS ?= # --warnings-as-errors on CI
 CANONICAL := master/ # master/ or vMAJOR.MINOR/
-ELIXIRC := bin/elixirc --verbose --ignore-module-conflict
+ELIXIRC := bin/elixirc --verbose --ignore-module-conflict $(ELIXIRC_OPTIONS)
 ERLC := erlc -I lib/elixir/include
 ERL := erl -I lib/elixir/include -noshell -pa lib/elixir/ebin
 GENERATE_APP := $(CURDIR)/lib/elixir/generate_app.escript
